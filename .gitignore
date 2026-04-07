@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual env
+venv/
+.env
+
+# Airflow
+airflow/logs/
+airflow/airflow.db
+airflow/unittests.cfg
+
+# dbt
+dbt_modules/
+target/
+logs/
+
+# OS
+.DS_Store
+
+# GCP credentials
+*.json
+
+# Docker
+*.pid
+
+# IDE
+.vscode/
+.idea/
