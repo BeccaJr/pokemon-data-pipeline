@@ -42,15 +42,6 @@ services:
     command: scheduler
 
   airflow-init:
-    <<: *airflow-common
-    command: >
-      bash -c "
-      airflow db init &&
-      airflow users create
-        --username admin
-        --password admin
-        --firstname admin
-        --lastname admin
-        --role Admin
-        --email admin@email.com
-      "
+      <<: *airflow-common
+      command: >
+        bash -c "airflow db migrate && airflow users create --username admin --password admin --firstname admin --lastname admin --role Admin --email admin@email.com"
