@@ -7,6 +7,7 @@ x-airflow-common:
     dockerfile: docker/Dockerfile
   environment:
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__TEST_CONNECTION: Enabled
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
