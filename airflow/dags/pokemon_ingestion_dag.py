@@ -81,7 +81,11 @@ def load_to_bq(file_path):
     logging.info(f"Arquivo carregado com sucesso: {file_path}")
 
     # limpa arquivo depois
-    os.remove(file_path)
+    try:
+        if os.path.exists(file_path):
+            os.remove(file_path)
+    except Exception as e:
+        logging.warning(f"Erro ao remover arquivo {file_path}: {e}")
 
 
 # =========================
@@ -136,7 +140,7 @@ def extract_and_load(**context):
 with DAG(
     dag_id="pokemon_ingestion",
     start_date=days_ago(1),
-    schedule_interval=None,
+    schedule_interval="@daily",
     catchup=False,
     tags=["pokemon", "ingestion", "bigquery"],
 ) as dag:
